@@ -13,8 +13,8 @@ CREATE TABLE product_group
     CONSTRAINT product_group_pkey PRIMARY KEY (id)
 );
 
-CREATE TYPE distribution_type AS ENUM ('Physical', 'Digital');
-CREATE TYPE format_type AS ENUM ('Vinyl', 'CD', 'Cassette', 'MP3', 'WAV', 'WAV24');
+CREATE TYPE distribution_type AS ENUM ('PHYSICAL', 'DIGITAL');
+CREATE TYPE format_type AS ENUM ('VINYL', 'CD', 'CASSETTE', 'MP3', 'WAV', 'WAV24');
 
 CREATE TABLE product
 (
