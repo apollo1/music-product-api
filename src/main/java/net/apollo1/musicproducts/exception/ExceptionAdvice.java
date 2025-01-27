@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Slf4j
@@ -16,6 +17,17 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @RestControllerAdvice
 @Priority(Ordered.LOWEST_PRECEDENCE)
 public class ExceptionAdvice {
+
+    @ResponseStatus(INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(RuntimeException.class)
+    public ExceptionDTO uncaughtException(RuntimeException e) {
+        log.error("Uncaught exception encountered", e);
+        return new ExceptionDTO(
+                ErrorCode.SERVER_ERROR,
+                "Internal Server Error",
+                "The server encountered an internal error was unable to complete the request."
+        );
+    }
 
     @ResponseStatus(NOT_FOUND)
     @ExceptionHandler(ProductNotFoundException.class)
