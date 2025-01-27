@@ -1,0 +1,29 @@
+services:
+  spring:
+    container_name: music-product-api
+    build:
+      dockerfile: ./Dockerfile
+    tty: true
+    working_dir: /app
+    ports:
+      - "8080:8080"
+    entrypoint: ./gradlew --no-daemon bootRun --args='--spring.profiles.active=local'
+    volumes:
+      - ./:/app
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_USER=musicproducts
+      - POSTGRES_PASSWORD=musicproducts
+      - POSTGRES_DB=musicproducts
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  postgres:
+    image: postgres:17.2
+    container_name: music-product-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=musicproducts
+      - POSTGRES_PASSWORD=musicproducts
+      - POSTGRES_DB=musicproducts
