@@ -28,7 +28,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 @Testcontainers
 @TestInstance(PER_CLASS)
-class ProductControllerComponentTest extends ComponentTest {
+class GetProductForIdComponentTest extends ComponentTest {
 
     public static final String CONTROLLER_PATH = "/products/";
     public static final String VALID_PRODUCT_ID = "15ac6b6c-e6e8-423c-b5a8-bf7d44f43e77";
@@ -42,7 +42,7 @@ class ProductControllerComponentTest extends ComponentTest {
     @Sql(scripts = "classpath:data/insert_products.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Sql(scripts = "classpath:data/cleanup_db.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     @DisplayName("should return the product associated with the product ID supplied")
-    void getProductForId() throws Exception {
+    void shouldGetProductForId() throws Exception {
         var request = createRequest(null);
         var response = template.exchange(CONTROLLER_PATH + VALID_PRODUCT_ID, HttpMethod.GET, request, String.class);
 

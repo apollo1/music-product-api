@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import net.apollo1.musicproducts.product.repository.ProductDAO;
 import net.apollo1.musicproducts.productgroup.model.ProductGroup;
-import net.apollo1.musicproducts.store.repository.store.model.Store;
+import net.apollo1.musicproducts.store.model.Store;
 
 import java.time.LocalDate;
 import java.util.UUID;

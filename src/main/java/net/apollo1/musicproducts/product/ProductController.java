@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @Slf4j
@@ -24,5 +25,12 @@ public class ProductController {
 
         log.debug("Get product requested for id: {}", id);
         return productService.getProduct(id);
+    }
+
+    @GetMapping
+    public List<Product> getProducts() {
+
+        log.debug("Get all products");
+        return productService.getProducts();
     }
 }

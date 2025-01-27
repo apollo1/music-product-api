@@ -1,4 +1,4 @@
-package net.apollo1.musicproducts.store.repository.store.model;
+package net.apollo1.musicproducts.store.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;

@@ -6,6 +6,7 @@ import net.apollo1.musicproducts.product.model.Product;
 import net.apollo1.musicproducts.product.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -17,5 +18,11 @@ public class ProductService {
         return productRepository.findById(id)
                 .map(Product::from)
                 .orElseThrow(() -> new ProductNotFoundException(id));
+    }
+
+    public List<Product> getProducts() {
+        return productRepository.findAll()
+                .stream().map(Product::from)
+                .toList();
     }
 }
