@@ -34,4 +34,8 @@ public class ProductService {
         return Product.from(productRepository.save(productDAO));
     }
 
+    public void deleteProduct(UUID id) {
+        productRepository.deleteById(id);
+    }
+
 }
