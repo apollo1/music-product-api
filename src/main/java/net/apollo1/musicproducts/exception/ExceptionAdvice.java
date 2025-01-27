@@ -3,14 +3,15 @@ package net.apollo1.musicproducts.exception;
 import jakarta.annotation.Priority;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.apollo1.musicproducts.product.exception.ProductGroupNotFoundException;
 import net.apollo1.musicproducts.product.exception.ProductNotFoundException;
+import net.apollo1.musicproducts.product.exception.StoreNotFoundException;
 import org.springframework.core.Ordered;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.http.HttpStatus.*;
 
 @Slf4j
 @AllArgsConstructor
@@ -35,6 +36,26 @@ public class ExceptionAdvice {
         return new ExceptionDTO(
                 ErrorCode.PRODUCT_NOT_FOUND,
                 "Not Found",
+                e.getMessage()
+        );
+    }
+
+    @ResponseStatus(BAD_REQUEST)
+    @ExceptionHandler(StoreNotFoundException.class)
+    public ExceptionDTO handleStoreNotFoundException(RuntimeException e) {
+        return new ExceptionDTO(
+                ErrorCode.BAD_REQUEST,
+                "Store Not Found",
+                e.getMessage()
+        );
+    }
+
+    @ResponseStatus(BAD_REQUEST)
+    @ExceptionHandler(ProductGroupNotFoundException.class)
+    public ExceptionDTO handleProductGroupNotFoundException(RuntimeException e) {
+        return new ExceptionDTO(
+                ErrorCode.BAD_REQUEST,
+                "Product Group Not Found",
                 e.getMessage()
         );
     }

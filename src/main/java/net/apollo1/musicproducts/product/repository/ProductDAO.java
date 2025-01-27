@@ -1,11 +1,11 @@
 package net.apollo1.musicproducts.product.repository;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import net.apollo1.musicproducts.productgroup.repository.ProductGroupDAO;
 import net.apollo1.musicproducts.store.repository.StoreDAO;
+import org.hibernate.annotations.JdbcType;
+import org.hibernate.dialect.PostgreSQLEnumJdbcType;
 import org.springframework.lang.NonNull;
 
 import java.time.LocalDate;
@@ -13,6 +13,8 @@ import java.util.UUID;
 
 @Data
 @Entity
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "product")
 @RequiredArgsConstructor
@@ -26,9 +28,11 @@ public class ProductDAO {
     private String title;
 
     @Enumerated(EnumType.STRING)
+    @JdbcType(value = PostgreSQLEnumJdbcType.class)
     private Distribution distribution;
 
     @Enumerated(EnumType.STRING)
+    @JdbcType(value = PostgreSQLEnumJdbcType.class)
     private Format format;
 
     private double priceGbp;

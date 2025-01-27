@@ -1,0 +1,19 @@
+{
+  "id": "70a4f3cc-8083-42cc-9a11-31a252d1fef1",
+  "title": "Deep Tan Vinyl",
+  "distribution": "PHYSICAL",
+  "format": "VINYL",
+  "priceGbp": "24.99",
+  "priceUsd": "22.99",
+  "priceEur": "23.99",
+  "productReleaseDate": "2023-11-10",
+  "store": {
+    "id": "fe22ec46-383b-46a0-a7f0-470bc5977f57",
+    "name": "Rough Trade"
+  },
+  "productGroup": {
+    "id": "e38abc59-47ef-4610-96f1-fbdc0b2fd9b0",
+    "title": "Music",
+    "releaseDate": "2021-08-07"
+  }
+}

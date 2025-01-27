@@ -3,6 +3,8 @@ package net.apollo1.musicproducts.product;
 import lombok.AllArgsConstructor;
 import net.apollo1.musicproducts.product.exception.ProductNotFoundException;
 import net.apollo1.musicproducts.product.model.Product;
+import net.apollo1.musicproducts.product.repository.ProductDAO;
+import net.apollo1.musicproducts.product.repository.ProductDaoMapper;
 import net.apollo1.musicproducts.product.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ProductService {
     ProductRepository productRepository;
+    ProductDaoMapper productDaoMapper;
 
     public Product getProduct(UUID id) {
         return productRepository.findById(id)
@@ -25,4 +28,10 @@ public class ProductService {
                 .stream().map(Product::from)
                 .toList();
     }
+
+    public Product saveProduct(Product product) {
+        ProductDAO productDAO = productDaoMapper.apply(product);
+        return Product.from(productRepository.save(productDAO));
+    }
+
 }
