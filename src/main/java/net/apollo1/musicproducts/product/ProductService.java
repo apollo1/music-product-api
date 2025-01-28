@@ -4,8 +4,9 @@ import lombok.AllArgsConstructor;
 import net.apollo1.musicproducts.product.exception.ProductNotFoundException;
 import net.apollo1.musicproducts.product.model.Product;
 import net.apollo1.musicproducts.product.repository.ProductDAO;
-import net.apollo1.musicproducts.product.repository.ProductDaoMapper;
 import net.apollo1.musicproducts.product.repository.ProductRepository;
+import net.apollo1.musicproducts.product.repository.SaveProductDaoMapper;
+import net.apollo1.musicproducts.product.repository.UpdateProductDaoMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -16,7 +17,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ProductService {
     ProductRepository productRepository;
-    ProductDaoMapper productDaoMapper;
+    SaveProductDaoMapper saveProductDaoMapper;
+    UpdateProductDaoMapper updateProductDaoMapper;
 
     public Product getProduct(UUID id) {
         return productRepository.findById(id)
@@ -31,7 +33,15 @@ public class ProductService {
     }
 
     public Product saveProduct(Product product) {
-        ProductDAO productDAO = productDaoMapper.apply(product);
+        ProductDAO productDAO = saveProductDaoMapper.apply(product);
+        return Product.from(productRepository.save(productDAO));
+    }
+
+    public Product updateProduct(UUID id, Product product) {
+        productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException(id));
+
+        ProductDAO productDAO = updateProductDaoMapper.apply(product);
         return Product.from(productRepository.save(productDAO));
     }
 

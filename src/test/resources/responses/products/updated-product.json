@@ -1,0 +1,19 @@
+{
+  "id": "15ac6b6c-e6e8-423c-b5a8-bf7d44f43e77",
+  "title": "Chelsea Wolfe CD + Booklet",
+  "distribution": "PHYSICAL",
+  "format": "CD",
+  "priceGbp": "19.99",
+  "priceUsd": "17.99",
+  "priceEur": "18.99",
+  "productReleaseDate": "2024-03-15",
+  "store": {
+    "id": "023e4795-5f59-4650-bd86-d7990803759c",
+    "name": "Sister Ray"
+  },
+  "productGroup": {
+    "id": "e38abc59-47ef-4610-96f1-fbdc0b2fd9b0",
+    "title": "Music",
+    "releaseDate": "2021-08-07"
+  }
+}

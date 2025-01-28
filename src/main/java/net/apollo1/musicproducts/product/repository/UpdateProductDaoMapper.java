@@ -8,12 +8,11 @@ import net.apollo1.musicproducts.productgroup.repository.ProductGroupRepository;
 import net.apollo1.musicproducts.store.repository.StoreRepository;
 import org.springframework.stereotype.Component;
 
-import java.util.UUID;
 import java.util.function.Function;
 
 @Component
 @AllArgsConstructor
-public class ProductDaoMapper implements Function<Product, ProductDAO> {
+public class UpdateProductDaoMapper implements Function<Product, ProductDAO> {
 
     StoreRepository storeRepository;
     ProductGroupRepository productGroupRepository;
@@ -21,7 +20,7 @@ public class ProductDaoMapper implements Function<Product, ProductDAO> {
     @Override
     public ProductDAO apply(Product product) {
         return ProductDAO.builder()
-                .id(UUID.randomUUID())
+                .id(product.id())
                 .title(product.title())
                 .distribution(ProductDAO.Distribution.valueOf(product.distribution()))
                 .format(ProductDAO.Format.valueOf(product.format()))

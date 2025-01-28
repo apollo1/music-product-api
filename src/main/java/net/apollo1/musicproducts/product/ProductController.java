@@ -21,7 +21,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping(path = "/{id}")
-    public Product getProduct(@PathVariable("id") UUID id) {
+    public Product getProduct(@PathVariable("id") @Valid UUID id) {
         log.debug("Get product requested for id: {}", id);
         return productService.getProduct(id);
     }
@@ -38,15 +38,14 @@ public class ProductController {
         return productService.saveProduct(product);
     }
 
-//    @PutMapping(path = "/{id}")
-//    public Product updateProduct(@PathVariable("id") UUID id) {
-//
-//        log.debug("Update product for id: {}", id);
-//        return productService.updateProduct(id);
-//    }
+    @PutMapping(path = "/{id}")
+    public Product updateProduct(@PathVariable("id") @Valid UUID id, @RequestBody @Valid Product product) {
+        log.debug("Update product for id: {}", id);
+        return productService.updateProduct(id, product);
+    }
 
     @DeleteMapping(path = "/{id}")
-    public void deleteProduct(@PathVariable("id") UUID id) {
+    public void deleteProduct(@PathVariable("id") @Valid UUID id) {
         log.debug("Delete product for id: {}", id);
         productService.deleteProduct(id);
     }
