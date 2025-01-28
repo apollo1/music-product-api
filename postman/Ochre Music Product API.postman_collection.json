@@ -1,0 +1,436 @@
+{
+	"info": {
+		"_postman_id": "906a2cdd-31a2-4e6f-bfaf-2668f92d923b",
+		"name": "Ochre Music Product API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3688689"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get Product given ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{port}}/products/{{id}}",
+							"host": [
+								"{{base_url}}{{port}}"
+							],
+							"path": [
+								"products",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{port}}/products",
+							"host": [
+								"{{base_url}}{{port}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{port}}/products/filter?storeName=Sister+Ray&productGroupTitle&productGroupReleaseDateFrom&productGroupReleaseDateTo&productTitle&productReleaseDateFrom&productReleaseDateTo",
+							"host": [
+								"{{base_url}}{{port}}"
+							],
+							"path": [
+								"products",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "storeName",
+									"value": "Sister+Ray"
+								},
+								{
+									"key": "productGroupTitle",
+									"value": null
+								},
+								{
+									"key": "productGroupReleaseDateFrom",
+									"value": null
+								},
+								{
+									"key": "productGroupReleaseDateTo",
+									"value": null
+								},
+								{
+									"key": "productTitle",
+									"value": null
+								},
+								{
+									"key": "productReleaseDateFrom",
+									"value": null
+								},
+								{
+									"key": "productReleaseDateTo",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Deep Tan Vinyl\",\n    \"distribution\": \"PHYSICAL\",\n    \"format\": \"VINYL\",\n    \"priceGbp\": \"24.99\",\n    \"priceUsd\": \"22.99\",\n    \"priceEur\": \"23.99\",\n    \"productReleaseDate\": \"2023-11-10\",\n    \"store\": {\n        \"id\": \"fe22ec46-383b-46a0-a7f0-470bc5977f57\"\n    },\n    \"productGroup\": {\n        \"id\": \"e38abc59-47ef-4610-96f1-fbdc0b2fd9b0\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{port}}/products",
+							"host": [
+								"{{base_url}}{{port}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{port}}/products/{{id}}",
+							"host": [
+								"{{base_url}}{{port}}"
+							],
+							"path": [
+								"products",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"15ac6b6c-e6e8-423c-b5a8-bf7d44f43e77\",\n    \"title\": \"Chelsea Wolfe CD + Booklet\",\n    \"distribution\": \"PHYSICAL\",\n    \"format\": \"CD\",\n    \"priceGbp\": \"19.99\",\n    \"priceUsd\": \"17.99\",\n    \"priceEur\": \"18.99\",\n    \"productReleaseDate\": \"2024-03-15\",\n    \"store\": {\n        \"id\": \"023e4795-5f59-4650-bd86-d7990803759c\",\n        \"name\": \"Sister Ray\"\n    },\n    \"productGroup\": {\n        \"id\": \"e38abc59-47ef-4610-96f1-fbdc0b2fd9b0\",\n        \"title\": \"Music\",\n        \"releaseDate\": \"2021-08-07\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{port}}/products/15ac6b6c-e6e8-423c-b5a8-bf7d44f43e77",
+							"host": [
+								"{{base_url}}{{port}}"
+							],
+							"path": [
+								"products",
+								"15ac6b6c-e6e8-423c-b5a8-bf7d44f43e77"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Group",
+			"item": [
+				{
+					"name": "Get Product Group given ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{port}}/productgroups/{{id}}",
+							"host": [
+								"{{base_url}}{{port}}"
+							],
+							"path": [
+								"productgroups",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Product Groups",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{port}}/productgroups",
+							"host": [
+								"{{base_url}}{{port}}"
+							],
+							"path": [
+								"productgroups"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Get All Stores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{port}}/stores",
+							"host": [
+								"{{base_url}}{{port}}"
+							],
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Store given ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{port}}/stores/{{id}}",
+							"host": [
+								"{{base_url}}{{port}}"
+							],
+							"path": [
+								"stores",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "15ac6b6c-e6e8-423c-b5a8-bf7d44f43e77"
+		},
+		{
+			"key": "base_url",
+			"value": "localhost"
+		},
+		{
+			"key": "port",
+			"value": ":8080",
+			"type": "string"
+		}
+	]
+}
