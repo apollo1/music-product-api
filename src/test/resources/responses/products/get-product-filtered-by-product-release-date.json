@@ -1,0 +1,59 @@
+[
+    {
+        "id": "34ae6825-59d3-4e14-b7f5-5e648464011c",
+        "title": "Goat Girl MP3",
+        "distribution": "DIGITAL",
+        "format": "MP3",
+        "priceGbp": "14.99",
+        "priceUsd": "18.99",
+        "priceEur": "16.99",
+        "productReleaseDate": "2023-08-01",
+        "store": {
+            "id": "fe22ec46-383b-46a0-a7f0-470bc5977f57",
+            "name": "Rough Trade"
+        },
+        "productGroup": {
+            "id": "e38abc59-47ef-4610-96f1-fbdc0b2fd9b0",
+            "title": "Music",
+            "releaseDate": "2021-08-07"
+        }
+    },
+    {
+        "id": "c540296b-df4d-49fe-b856-8355764b27d8",
+        "title": "Fraulein Cassette",
+        "distribution": "PHYSICAL",
+        "format": "CASSETTE",
+        "priceGbp": "9.99",
+        "priceUsd": "8.99",
+        "priceEur": "7.99",
+        "productReleaseDate": "2023-06-20",
+        "store": {
+            "id": "fe22ec46-383b-46a0-a7f0-470bc5977f57",
+            "name": "Rough Trade"
+        },
+        "productGroup": {
+            "id": "ac7297d9-a74d-486e-9bca-bd714f33dc23",
+            "title": "Merch",
+            "releaseDate": "2023-12-31"
+        }
+    },
+    {
+        "id": "70a4f3cc-8083-42cc-9a11-31a252d1fef1",
+        "title": "Deep Tan Vinyl",
+        "distribution": "PHYSICAL",
+        "format": "VINYL",
+        "priceGbp": "24.99",
+        "priceUsd": "22.99",
+        "priceEur": "23.99",
+        "productReleaseDate": "2023-11-10",
+        "store": {
+            "id": "fe22ec46-383b-46a0-a7f0-470bc5977f57",
+            "name": "Rough Trade"
+        },
+        "productGroup": {
+            "id": "e38abc59-47ef-4610-96f1-fbdc0b2fd9b0",
+            "title": "Music",
+            "releaseDate": "2021-08-07"
+        }
+    }
+]

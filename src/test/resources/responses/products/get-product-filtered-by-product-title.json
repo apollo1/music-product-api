@@ -1,0 +1,21 @@
+[
+  {
+    "id": "34ae6825-59d3-4e14-b7f5-5e648464011c",
+    "title": "Goat Girl MP3",
+    "distribution": "DIGITAL",
+    "format": "MP3",
+    "priceGbp": "14.99",
+    "priceUsd": "18.99",
+    "priceEur": "16.99",
+    "productReleaseDate": "2023-08-01",
+    "store": {
+      "id": "fe22ec46-383b-46a0-a7f0-470bc5977f57",
+      "name": "Rough Trade"
+    },
+    "productGroup": {
+      "id": "e38abc59-47ef-4610-96f1-fbdc0b2fd9b0",
+      "title": "Music",
+      "releaseDate": "2021-08-07"
+    }
+  }
+]

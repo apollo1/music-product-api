@@ -8,6 +8,7 @@ import net.apollo1.musicproducts.product.repository.ProductDaoMapper;
 import net.apollo1.musicproducts.product.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,6 +37,12 @@ public class ProductService {
 
     public void deleteProduct(UUID id) {
         productRepository.deleteById(id);
+    }
+
+    public List<Product> getFilteredProducts(String storeName, String productGroupTitle, LocalDate productGroupReleaseDateFrom, LocalDate productGroupReleaseDateTo, String productTitle, LocalDate productReleaseDateFrom, LocalDate productReleaseDateTo) {
+        return productRepository.getFilteredProducts(storeName, productGroupTitle, productGroupReleaseDateFrom, productGroupReleaseDateTo, productTitle, productReleaseDateFrom, productReleaseDateTo)
+                .stream().map(Product::from)
+                .toList();
     }
 
 }
