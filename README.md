@@ -48,3 +48,4 @@ I added placeholder implementations for `stores` and `product-groups`, a real wo
 - Consider caching frequently accessed data to improve performance.
 - There's no security considerations in this exercise, you'd probably want that in the real world.
 - API Documentation - add something like SpringDoc / OpenAPI / Swagger annotations to document the API.
+- `GET /products` can be removed, Get All is the same as filter with no query params

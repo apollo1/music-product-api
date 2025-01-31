@@ -41,8 +41,8 @@ class FilterProductsComponentTest extends ComponentTest {
     @ParameterizedTest(name = "should filter Products based on query params")
     @Sql(scripts = "classpath:data/insert_products-for-filtering.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Sql(scripts = "classpath:data/cleanup_db.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-    @DisplayName("should return all products")
-    void shouldFilterByProductTitle(String params, String responseFile) throws Exception {
+    @DisplayName("should filter products by query criteria")
+    void shouldFilterProductsByQueryCriteria(String params, String responseFile) throws Exception {
         var request = createRequest(null);
         var response = template.exchange(CONTROLLER_PATH + params, HttpMethod.GET, request, String.class);
 
